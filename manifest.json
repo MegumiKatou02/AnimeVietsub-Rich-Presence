@@ -10,7 +10,6 @@
     ],
     "host_permissions": [
       "*://*.youtube.com/*",
-      "*://*.netflix.com/*",
       "*://animevietsub.lol/*"
     ],
     "background": {
@@ -18,12 +17,8 @@
     },
     "content_scripts": [
         {
-            "matches": ["*://*.youtube.com/*"],
-            "js": ["content.js"]
-        },
-        {
             "matches": ["*://animevietsub.lol/*"],
-            "js": ["animevietsub.js"],
+            "js": ["content/animevietsub.js"],
             "all_frames": true
         }
     ],
