@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Presence Extension</title>
+    <script src="popup.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: linear-gradient(135deg, #23272f 60%, #3a3f4b 100%);
+        color: #fff;
+        min-width: 280px;
+        min-height: 220px;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      .logo {
+        margin-top: 18px;
+        margin-bottom: 8px;
+        font-size: 2.2rem;
+        color: #4caf50;
+        text-shadow: 0 2px 8px #0002;
+      }
+      h1 {
+        font-size: 1.25rem;
+        margin-bottom: 6px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-align: center;
+      }
+      .desc {
+        font-size: 0.98rem;
+        color: #bdbdbd;
+        margin-bottom: 18px;
+        text-align: center;
+      }
+      #info {
+        background: #2c2f36;
+        border-radius: 10px;
+        padding: 10px 14px;
+        margin-bottom: 22px;
+        font-size: 1.02rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        min-width: 180px;
+        text-align: center;
+      }
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 54px;
+        height: 30px;
+        vertical-align: middle;
+        margin-right: 12px;
+      }
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #888;
+        transition: .3s;
+        border-radius: 30px;
+        box-shadow: 0 2px 8px #0002;
+      }
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 24px;
+        width: 24px;
+        left: 3px;
+        bottom: 3px;
+        background-color: #fff;
+        transition: .3s;
+        border-radius: 50%;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.14);
+      }
+      input:checked + .slider {
+        background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+        box-shadow: 0 2px 12px #43e97b44;
+      }
+      input:checked + .slider:before {
+        transform: translateX(24px);
+        background: #eafff3;
+      }
+      #toggle-label {
+        font-size: 1.08rem;
+        vertical-align: middle;
+        user-select: none;
+        font-weight: 600;
+        color: #4caf50;
+        letter-spacing: 0.5px;
+      }
+      .toggle-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+      @media (max-width: 350px) {
+        body { padding: 10px 4px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo"><i class="fa-solid fa-circle-nodes"></i></div>
+    <h1>Discord Rich Presence</h1>
+    <div class="desc">Hiển thị trạng thái hoạt động của bạn trên Discord.<br>Bật/tắt bất cứ lúc nào!</div>
+    <div id="info">Loading...</div>
+    <div class="toggle-row">
+      <label class="switch">
+        <input type="checkbox" id="toggle-rich-presence">
+        <span class="slider"></span>
+      </label>
+      <span id="toggle-label">Rich Presence</span>
+    </div>
+  </body>
+</html>

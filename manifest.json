@@ -1,0 +1,34 @@
+{
+    "manifest_version": 3,
+    "name": "AnimeVietsub Presence Tracker",
+    "version": "1.0",
+    "description": "Track what user is doing on specific websites and send to local app.",
+    "permissions": [
+      "tabs",
+      "scripting",
+      "activeTab"
+    ],
+    "host_permissions": [
+      "*://*.youtube.com/*",
+      "*://*.netflix.com/*",
+      "*://animevietsub.lol/*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://*.youtube.com/*"],
+            "js": ["content.js"]
+        },
+        {
+            "matches": ["*://animevietsub.lol/*"],
+            "js": ["animevietsub.js"],
+            "all_frames": true
+        }
+    ],
+    "action": {
+      "default_popup": "popup.html"
+    }
+  }
+  
