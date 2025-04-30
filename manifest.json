@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "AnimeVietsub Presence Tracker",
     "version": "1.0",
-    "description": "Track what user is doing on specific websites and send to local app.",
+    "description": "RPC cho website AnimeVietsub",
     "permissions": [
       "tabs",
       "scripting",
@@ -17,11 +17,11 @@
       "service_worker": "background.js"
     },
     "content_scripts": [
-        {
-            "matches": ["*://animevietsub.lol/*"],
-            "js": ["content/animevietsub.js"],
-            "all_frames": true
-        }
+      {
+          "matches": ["*://animevietsub.lol/*"],
+          "js": ["content/animevietsub.js"],
+          "all_frames": true
+      }
     ],
     "action": {
       "default_popup": "popup.html"
