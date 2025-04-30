@@ -10,9 +10,15 @@ function getVideoInfo() {
 
     let title = "Unknown Title";
     let episode = null;
+    
     let video = document.querySelector('video');
+    let isPaused = false;
+    if (video.paused) {
+        isPaused = true;
+    }
     let currentTime = video?.currentTime || 0;
     let duration = video?.duration || 0;
+    
     let type = 'ANIMEVIETSUB';
 
     if (isHome) {
@@ -36,6 +42,7 @@ function getVideoInfo() {
     const data = {
         type,
         isWatching,
+        isPaused,
         part,
         title,
         episode,
